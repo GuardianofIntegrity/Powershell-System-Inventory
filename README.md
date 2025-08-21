@@ -25,7 +25,7 @@ Open PowerShell in the folder where these scripts are located and run:
 # Run local inventory
 .\Inventory_v1.ps1
  ##Example Output
-![Example Output](https://github.com/GuardianofIntegrity/Powershell-System-Inventory/blob/main/Script%20test.jpg)
+![Example Output](https://github.com/GuardianofIntegrity/Powershell-System-Inventory/blob/main/Script%20test.jpg?raw=true)
 
 # Run multi-computer inventory
 .\Inventory_v2.ps1 -ComputerListPath .\machines.txt
