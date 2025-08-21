@@ -25,8 +25,7 @@ Open PowerShell in the folder where these scripts are located and run:
 # Run local inventory
 .\Inventory_v1.ps1
  ##Example Output
-<img width="1445" height="544" alt="image" src="https://github.com/user-attachments/assets/d852e93b-04e6-43e7-bc6b-c5d6323e725b" />
-
+![Example Output](example-outputscript1.jpg)
 
 # Run multi-computer inventory
 .\Inventory_v2.ps1 -ComputerListPath .\machines.txt
