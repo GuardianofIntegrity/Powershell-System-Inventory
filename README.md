@@ -24,8 +24,9 @@ Open PowerShell in the folder where these scripts are located and run:
 ```powershell
 # Run local inventory
 .\Inventory_v1.ps1
- ##Example Output
- [Click here to view example output](https://github.com/GuardianofIntegrity/Powershell-System-Inventory/blob/main/example-outputscript1.jpg)
+Each run generates a 'SystemInventory.csv' report.
+You can view an example screenshot in this repo:
+See file: 'example-outputscript1.jpg'
 
 # Run multi-computer inventory
 .\Inventory_v2.ps1 -ComputerListPath .\machines.txt
