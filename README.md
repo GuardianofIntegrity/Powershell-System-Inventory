@@ -7,9 +7,14 @@ This repository contains PowerShell scripts for collecting system inventory info
 ### Inventory_v1.ps1
 - Collects information from the **local computer** only.
 
+**Importance of script**: This script will help gather data for system Inventory. It can be useful for asset mangagement, compliance audits, and troubleshooting.
+
+
 ### Inventory_v2.ps1
 - Collects information from **multiple computers** (specified by `-ComputerName` or in `machines.txt`).
 - Includes error handling for unreachable machines.
+
+  **Importance of script**: In large organizations, this script can allow admins to pull reports from many computers at once, saving hours of manuel work.
 
 ### Inventory_v3_Function.ps1
 - Defines a reusable function `Get-SystemInventory`.
@@ -17,6 +22,7 @@ This repository contains PowerShell scripts for collecting system inventory info
 - Optional parameter `-IncludeDisks` adds disk usage info.
 - Supports pipeline usage.
 
+**Importance of script**: With this script being a function, it will allow automation, intergration with other scripts, and scalability.
 ## How to Run
 
 Open PowerShell in the folder where these scripts are located and run:
