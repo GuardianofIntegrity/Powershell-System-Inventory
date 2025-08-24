@@ -16,16 +16,24 @@ if (-not $ComputerName) {
     }
 }
 
-if ($Computer -eq "localhost" -or $Computer -eq $env:COMPUTERNAME) {
-    $ComputerSystem = Get-CimInstance Win32_ComputerSystem -ErrorAction Stop
-    $OS = Get-CimInstance Win32_OperatingSystem -ErrorAction Stop
-    $BIOS = Get-CimInstance Win32_BIOS -ErrorAction Stop
-} else {
-    $ComputerSystem = Get-CimInstance Win32_ComputerSystem -ComputerName $Computer -ErrorAction Stop
-    $OS = Get-CimInstance Win32_OperatingSystem -ComputerName $Computer -ErrorAction Stop
-    $BIOS = Get-CimInstance Win32_BIOS -ComputerName $Computer -ErrorAction Stop
+# ✅ Safeguard: Warn if no computer names were loaded
+if (-not $ComputerName -or $ComputerName.Count -eq 0) {
+    Write-Warning "⚠️ No computer names found. Please provide input via parameter or populate machines.txt."
+    exit
 }
 
+$Results = foreach ($Computer in $ComputerName) {
+    try {
+        # Use local queries if targeting localhost or current machine
+        if ($Computer -eq "localhost" -or $Computer -eq $env:COMPUTERNAME) {
+            $ComputerSystem = Get-CimInstance Win32_ComputerSystem -ErrorAction Stop
+            $OS = Get-CimInstance Win32_OperatingSystem -ErrorAction Stop
+            $BIOS = Get-CimInstance Win32_BIOS -ErrorAction Stop
+        } else {
+            $ComputerSystem = Get-CimInstance Win32_ComputerSystem -ComputerName $Computer -ErrorAction Stop
+            $OS = Get-CimInstance Win32_OperatingSystem -ComputerName $Computer -ErrorAction Stop
+            $BIOS = Get-CimInstance Win32_BIOS -ComputerName $Computer -ErrorAction Stop
+        }
 
         # Create inventory object
         [PSCustomObject]@{
