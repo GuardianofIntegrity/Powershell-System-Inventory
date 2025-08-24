@@ -36,6 +36,8 @@ See file: 'example-outputscript1.jpg'
 
 # Run multi-computer inventory
 .\Inventory_v2.ps1 -ComputerListPath .\machines.txt
+You can view an example screenshot in this repo:
+See file: "Inventory_V2 successful output.png"
 
 # Load function and run with disk info
 . .\Inventory_v3_Function.ps1
